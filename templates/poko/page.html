@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books Form and Books Details</title>
+</head>
+<body>
+
+    
+<form method="POST"> 
+
+    {% csrf_token %} 
+  
+    <!-- Using the formset -->
+    {{ form.as_p }} 
+      
+    <input type="submit" value="Submit"> 
+</form> 
+
+<h2>Book Details</h2>
+
+{% for i in model %}
+    <div>
+        <h3><b>{{ i.title }} </b></h3>
+        <p>{{ i.description }}</p>
+    </div>
+{% endfor %}
+
+</body>
+</html>

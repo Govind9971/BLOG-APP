@@ -1,0 +1,42 @@
+{% extends 'poko/main.html' %}
+    
+{% block content %}
+
+
+
+<body> 
+     Display all blogs<br>
+
+    {% for i in blog %}
+    <!-- <div>
+        <h3><b>{{ i.title}}</b></h3>
+        <p>{{ i.description}}</p>
+        <a class="btn btn-danger" href="{% url 'delete' i.id %}" role="button">Delete</a>
+        <a class="btn btn-primary" href="{% url 'update' i.id %}" role="button">Update</a>
+    </div> -->
+    <div class="card text-center mb-3 border-warning" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img class="card-img img-fluid" src="/media/{{ i.image }}">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body ">
+              <h5 class="card-title h2">{{i.title}}</h5>
+              <p class="card-text">{{i.description}}</p>
+              <a class="btn btn-sm btn-danger" href="{% url 'delete' i.id %}">Delete</a>
+              <a class="btn btn-sm btn-info" href="{% url 'update' i.id %}">Update</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+
+    <br>
+
+    <a class="btn btn-primary" href="{% url 'create' %}" role="button">Create New Blog</a>
+    <a class="btn btn-info" href="{% url 'home' %}" role="button">Home</a>
+
+    {% endblock %}
+
+</body>
+</html>
